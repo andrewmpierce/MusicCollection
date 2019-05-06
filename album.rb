@@ -1,12 +1,18 @@
 class Album
-  def init(title, artist, played=false)
-      self.title = title
-      self.artist = artist
-      self.played = played
+  attr_reader :title, :artist
+  
+  def initialize(title, artist, played=false)
+      @title = title
+      @artist = artist
+      @played = played
+  end
+
+  def play
+    @played = true
   end
 
   def unplayed
-    !self.played
+    !@played
   end
 
 end
