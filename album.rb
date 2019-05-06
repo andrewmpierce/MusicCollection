@@ -1,6 +1,6 @@
 class Album
-  attr_reader :title, :artist
-  
+  attr_reader :title, :artist, :played
+
   def initialize(title, artist, played=false)
       @title = title
       @artist = artist

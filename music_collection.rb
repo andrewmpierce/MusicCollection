@@ -1,6 +1,8 @@
 require './album'
 
 class MusicCollection
+  attr_reader :collection
+  
   def initialize(collection = {})
     @collection = collection
   end
