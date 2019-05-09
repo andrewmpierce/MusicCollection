@@ -46,11 +46,4 @@ class MusicCollectionHelper
     args = user_input.downcase.sub(command, "")
     args.split(/"/).map { |word| word unless word.strip.empty? }.compact
   end
-
-
-
-
-
-
-
 end

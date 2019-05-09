@@ -13,8 +13,8 @@ describe MusicCollection do
     mc.add('title', 'artist')
     mc.play('title')
     expect(mc.collection['title'].played).to eq true
-  end #to output("my message").to_stdout
-
+  end
+  
   it 'should show all albums played' do
     mc = MusicCollection.new
     mc.add('title', 'artist')
