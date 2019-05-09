@@ -27,11 +27,13 @@ class MusicCollectionHelper
     'quit'
   end
 
+  # Some commands have one arg and some have two, so we can assign their keys
+  # as first and second arg
   def get_title_and_artist(user_input, command)
     title_and_artist = strip_command(user_input, command)
-    title = title_and_artist[0]
-    artist = title_and_artist.length > 1 ? title_and_artist[1] : nil
-    { title: titleize(title), artist: titleize(artist) }
+    first = title_and_artist[0]
+    second = title_and_artist.length > 1 ? title_and_artist[1] : nil
+    { first: titleize(first), second: titleize(second) }
   end
 
   # This has been pulled directly from the Rails ActiveSupport docs

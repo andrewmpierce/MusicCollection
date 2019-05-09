@@ -2,14 +2,18 @@ require './album'
 
 class MusicCollection
   attr_reader :collection
-  
+
   def initialize(collection = {})
     @collection = collection
   end
 
   def add(title, artist)
     album = Album.new(title, artist)
-    @collection[title] = album
+    if @collection[title]
+      puts 'That title is already in your collection!'
+    else
+      @collection[title] = album
+    end
     puts "Added #{title} by #{artist}"
   end
 
@@ -43,7 +47,7 @@ class MusicCollection
   def show_unplayed_by(artist)
     @collection.each do |title, album|
       album = @collection[title]
-      if album.title == artist && album.unplayed
+      if album.artist == artist && album.unplayed
         puts "#{album.title} by #{album.artist}"
       end
     end
