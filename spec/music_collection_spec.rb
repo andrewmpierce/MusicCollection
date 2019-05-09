@@ -14,15 +14,15 @@ describe MusicCollection do
     mc.play('title')
     expect(mc.collection['title'].played).to eq true
   end
-  
-  it 'should show all albums played' do
+
+  it 'should show all albums' do
     mc = MusicCollection.new
     mc.add('title', 'artist')
     mc.play('title')
-    expect {mc.show_all}.to output("title by artist\n").to_stdout
+    expect {mc.show_all}.to output("title by artist (played)\n").to_stdout
   end
 
-  it 'should show all albums played' do
+  it 'should show all albums unplayed' do
     mc = MusicCollection.new
     mc.add('title', 'artist')
     mc.add('title_unplayed', 'artist')
@@ -34,7 +34,7 @@ describe MusicCollection do
     mc = MusicCollection.new
     mc.add('title', 'artist')
     mc.add('title_by_another', 'another_artist')
-    expect {mc.show_all_by('artist')}.to output("title by artist\n").to_stdout
+    expect {mc.show_all_by('artist')}.to output("title by artist (unplayed)\n").to_stdout
   end
 
   it 'should show all unplayed title by an artist' do

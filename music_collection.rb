@@ -26,7 +26,7 @@ class MusicCollection
   def show_all
     @collection.each do |title, album|
       album = @collection[title]
-      puts "#{album.title} by #{album.artist}"
+      puts "#{album.title} by #{album.artist} (#{played_or_unplayed(album)})"
     end
   end
 
@@ -40,7 +40,7 @@ class MusicCollection
   def show_all_by(artist)
     @collection.each do |title, album|
       album = @collection[title]
-      puts "#{album.title} by #{album.artist}" if album.artist == artist
+      puts "#{album.title} by #{album.artist} (#{played_or_unplayed(album)})" if album.artist == artist
     end
   end
 
@@ -51,5 +51,9 @@ class MusicCollection
         puts "#{album.title} by #{album.artist}"
       end
     end
+  end
+
+  private def played_or_unplayed(album)
+    album.played ? 'played' : 'unplayed'
   end
 end
