@@ -11,7 +11,7 @@ class Album
     @played = true
   end
 
-  def unplayed
+  def unplayed?
     !@played
   end
 

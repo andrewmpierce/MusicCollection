@@ -33,7 +33,7 @@ class MusicCollection
   def show_unplayed
     @collection.each do |title, album|
       album = @collection[title]
-      puts "#{album.title} by #{album.artist}" if album.unplayed
+      puts "#{album.title} by #{album.artist}" if album.unplayed?
     end
   end
 
@@ -47,7 +47,7 @@ class MusicCollection
   def show_unplayed_by(artist)
     @collection.each do |title, album|
       album = @collection[title]
-      if album.artist == artist && album.unplayed
+      if album.artist == artist && album.unplayed?
         puts "#{album.title} by #{album.artist}"
       end
     end
